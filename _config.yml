@@ -1,1 +1,9 @@
 theme: jekyll-theme-cayman
+math: 
+  engine: katex
+
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light" # 見た目のテーマ
+    repository: "ushidakyotaro/ushidakyotaro.github.io" # あなたのリポジトリ名

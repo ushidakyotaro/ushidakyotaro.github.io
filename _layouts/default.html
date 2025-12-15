@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    </head>
+<body>
+    <div id="wrap">
+        {% include header.html %}
+
+        <div id="main-content">
+            <aside id="sidebar">
+                {% include sidebar.html %}
+            </aside>
+            
+            <main id="content">
+                {{ content }}
+            </main>
+        </div>
+
+        {% include footer.html %}
+    </div>
+</body>
+</html>
