@@ -15,52 +15,68 @@ body {
   line-height: 1.6;
 }
 
-// コンテンツ全体を包むコンテナ
+// --- レイアウト設定 ---
 #wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: white; // 記事部分は白
-  padding: 40px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  border-radius: 4px;
+  max-width: 1100px; // 少し広めに
+  margin: 40px auto;
+  background: white;
+  padding: 0; // 内側の余白は各要素に任せる
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-// --- ヘッダーの装飾 ---
+// ヘッダーを横並びにし、ロゴとメニューを両端に
 header {
-  border-bottom: 1px solid $border-gray;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between; // 両端に寄せる
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+
+  h1 { 
+    margin: 0; 
+    border: none; // タイトルの下線を消す
+    font-size: 1.5rem;
+  }
   
   nav ul {
-    list-style: none;
-    padding: 0;
     display: flex;
     gap: 20px;
-
-    li a {
-      text-decoration: none;
-      color: $text-black;
-      font-weight: bold;
-      &:hover {
-        color: $qiita-blue;
-      }
-    }
+    margin: 0;
+    list-style: none;
   }
 }
 
-// --- 記事タイトルと見出し ---
-h1, h2, h3 {
-  color: $text-black;
-  border-bottom: 1px solid $border-gray;
-  padding-bottom: 0.5rem;
+// メインとサイドバーを横並びにする
+#main-content {
+  display: flex; // Flexboxで横並び
+  padding: 20px;
+  gap: 30px; // 間の溝
 }
 
-a {
-  color: $qiita-blue;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+#sidebar {
+  flex: 0 0 250px; // 幅を250pxに固定
+  order: 1; // サイドバーを右側にしたい場合はこれ
+  border-left: 1px solid #eee; // 区切り線
+  padding-left: 20px;
+  
+  h3 { font-size: 1.1rem; border: none; }
+  ul { list-style: none; padding: 0; }
+}
+
+#content {
+  flex: 1; // 残りの幅をすべて使う
+  min-width: 0; // はみ出し防止
+  padding-bottom: 50px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #888;
+  border-top: 1px solid #eee;
 }
 
 // --- コードブロック（技術ブログ風） ---
