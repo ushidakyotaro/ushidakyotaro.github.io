@@ -28,40 +28,54 @@ body {
 
 // --- ヘッダーの修正 ---
 header {
-  position: static !important;
-  width: 100% !important;   // 画面いっぱいの幅
+  // テーマのデフォルト設定をリセット
+  position: static !important; 
+  width: auto !important;
   float: none !important;
-  display: flex !important;
+  
+  // カスタムスタイル
+  display: flex !important; // 強制的にFlexboxを適用
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;   // パディングを含めた幅計算
-  padding: 20px 5vw;        // 左右に少し余裕（画面幅の5%）を持たせる
-  background: white;        // 背景色を明示
+  padding: 20px 40px;
   border-bottom: 1px solid #eee;
 
   h1 { 
     margin: 0; 
+    border: none;
     font-size: 1.5rem;
+    white-space: nowrap; // タイトルが折り返さないように
     a { color: $qiita-blue; text-decoration: none; }
   }
-
-  nav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  
+  nav {
+    margin: 0 !important; // テーマの余白を消す
+    ul {
+      display: flex !important; // 縦並びを阻止
+      flex-direction: row !important; // 横向きを強制
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+      li {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
   }
 }
 
 // --- フッターの修正 ---
 footer {
-  width: 100% !important;
-  padding: 40px 0;
-  background: white;
-  border-top: 1px solid #eee;
+  position: static !important;
+  width: auto !important;
   text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #888;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
 }
 
 #sidebar {
