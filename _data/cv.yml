@@ -1,0 +1,15 @@
+experience:
+  - period: "2022.04 - 現在"
+    title: "東京大学 工学部 機械情報工学科"
+    description: "基盤Sに参加"
+
+awards:
+  - date: "2025.12"
+    title: "Sensing Solution ハッカソン2024 ベスト・フィールドセンシング賞"
+    organization: "ソニーグループ株式会社"
+    url: "https://sensing-solution-hackathon.sonyged.com/2024_report"
+
+papers:
+  - date: ""
+    title: "None"
+    url: ""

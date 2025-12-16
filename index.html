@@ -2,17 +2,59 @@
 layout: default # ステップ1で作成したレイアウトを指定
 title: "home"    # ページのタイトルを指定
 ---
-<head>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
+<section class="hero">
+  <h1>こんにちは、〇〇を研究している大学生です</h1>
+  <p>現在、ポートフォリオを作成中。</p>
+</section>
 
-<section>
-    <h2>最新の記事</h2>
-    <ul>
-    {% for post in site.posts limit:5 %}
-        <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})
-        </li>
+<section id="accounts">
+  <h2>Accounts</h2>
+  <table class="account-table">
+    {% for item in site.data.social %}
+    <tr>
+      <th>{{ item.name }}</th>
+      <td><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+    </tr>
     {% endfor %}
-    </ul>
-    </section>
+  </table>
+</section>
+
+<section id="recent-posts">
+  <h2>Recent Posts</h2>
+  <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    {% for item in site.data.cv.experience limit:2 %}
+        <li>{{ item.period }}: {{ item.title }}</li>
+    {% endfor %}
+  </ul>
+  <!-- <p><a href="{{ '/cv/' | relative_url }}">→ 詳細はCVページへ</a></p> -->
+</section>
+
+<section id="awards">
+  <h2>Awards</h2>
+  <ul>
+    {% for item in site.data.cv.awards limit:2 %}
+        <li>{{ item.date }}: {{ item.title }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="paper">
+    <h2>Paper</h2>
+        <ul>
+              {% for paper in site.data.cv.papers %}
+                    <li>{{ paper.date }}: {{ paper.title }} </li>
+                {% endfor %}
+        </ul>
+</section>

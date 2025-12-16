@@ -1,0 +1,13 @@
+<nav class="breadcrumbs">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  
+  {% if page.categories %}
+    {% for category in page.categories %}
+      &nbsp;>&nbsp;
+      <span>{{ category }}</span>
+    {% endfor %}
+  {% endif %}
+  
+  &nbsp;>&nbsp;
+  <span class="current-page">{{ page.title }}</span>
+</nav>
