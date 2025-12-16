@@ -14,8 +14,8 @@
     {% endif %}
     </head>
 <body>
-    <div id="wrap">
-        {% include header.html %}
+    
+    {% include header.html %}<div id="wrap">
 
         <div id="main-content">
             <aside id="sidebar">
@@ -29,8 +29,9 @@
                 {{ content }}
             </main>
         </div>
-
-        {% include footer.html %}
     </div>
+    
+    {% include footer.html %}
+    
 </body>
 </html>
