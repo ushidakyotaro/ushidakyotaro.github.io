@@ -1,13 +1,19 @@
-<div class="sidebar-section">
-    <h2>プロフィール</h2>
-    <p>自己紹介、技術や研究のことをまとめます。</p>
+<div class="profile-card">
+  <h3>Profile</h3>
+  <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Profile" class="profile-img">
+  <p>研究内容や興味関心について一言。</p>
 </div>
 
-<div class="sidebar-section">
-    <h2>カテゴリー</h2>
-    <ul>
-        <li><a href="#">研究</a></li>
-        <li><a href="#">技術</a></li>
-        <li><a href="#">活動</a></li>
-    </ul>
+<div class="category-list">
+  <h3>Categories</h3>
+  <ul>
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+      <li>
+        <a href="{{ '/categories/' | relative_url }}#{{ category[0] | slugify }}">
+          {{ category[0] }} ({{ category[1] | size }})
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>

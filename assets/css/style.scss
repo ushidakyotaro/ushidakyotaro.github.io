@@ -85,3 +85,44 @@ pre, code {
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+  a {
+    color: #666;
+    text-decoration: none;
+    &:hover { color: $qiita-blue; }
+  }
+}
+
+// Hero section
+.hero {
+  padding: 40px 0;
+  text-align: center;
+  background: linear-gradient(135deg, white, #eef9ff); // ほんのり青
+  margin-bottom: 30px;
+  border-radius: 8px;
+  h1 { border: none; font-size: 2rem; color: $qiita-blue; }
+}
+
+// Account Table
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  th, td {
+    border: 1px solid $border-gray;
+    padding: 10px;
+    text-align: left;
+  }
+  th { background: #f9f9f9; width: 30%; }
+}
+
+// Sidebar Profile Image
+.profile-img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}

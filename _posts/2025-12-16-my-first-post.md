@@ -1,15 +1,20 @@
 ---
-layout: default
+layout: post
 title: "最初のブログ記事"
 date: 2025-12-16
-categories: 技術
+categories: [技術, プログラミング, Python]
 math: true
 ---
 
 本文
 
-```
-code
+```python
+def hello():
+    print("Hello, Physics!")
 ```
 
-$E = m c^2$
+### 数式のテスト
+アインシュタインの公式は $E=mc^2$ です。
+
+以下はブロック形式の数式です。
+$$E=mc^2$$

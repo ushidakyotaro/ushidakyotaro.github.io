@@ -1,0 +1,56 @@
+---
+layout: default
+title: "Categories"
+permalink: /categories/
+---
+
+<h1>Category: <span id="category-name">All</span></h1>
+
+<div class="category-tags">
+  {% assign categories = site.categories | sort %}
+  {% for category in categories %}
+    <a href="#{{ category[0] | slugify }}" class="tag-link">{{ category[0] }} ({{ category[1] | size }})</a>
+  {% endfor %}
+</div>
+
+<hr>
+
+<div id="category-posts">
+  {% for category in site.categories %}
+    {% capture category_name %}{{ category[0] | slugify }}{% endcapture %}
+    <div class="category-group" id="group-{{ category_name }}" style="display:none;">
+      <ul class="post-list">
+        {% for post in category[1] %}
+          <li>
+            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  function filterCategory() {
+    const hash = window.location.hash.substring(1); // #以降を取得
+    const groups = document.querySelectorAll('.category-group');
+    const nameDisplay = document.getElementById('category-name');
+    
+    if (hash) {
+      groups.forEach(g => g.style.display = 'none');
+      const target = document.getElementById('group-' + hash);
+      if (target) {
+        target.style.display = 'block';
+        nameDisplay.innerText = decodeURIComponent(hash);
+      }
+    } else {
+      // ハッシュがない場合は全部出すか、メッセージを出す
+      nameDisplay.innerText = "Select a category";
+    }
+  }
+
+  // 読み込み時とハッシュ変更時に実行
+  window.addEventListener('hashchange', filterCategory);
+  window.onload = filterCategory;
+</script>
