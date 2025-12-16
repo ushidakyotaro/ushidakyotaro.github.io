@@ -1,10 +1,13 @@
 <header>
-  <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-  <nav>
-    <ul>
-      {% for link in site.data.navigation.main %}
-      <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  </nav>
+    <head>
+        <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    </head>
+    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <nav>
+        <ul>
+        {% for link in site.data.navigation.main %}
+        <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </nav>
 </header>
