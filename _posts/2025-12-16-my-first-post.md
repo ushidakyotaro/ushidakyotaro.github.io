@@ -3,6 +3,7 @@ layout: post
 title: "最初のブログ記事"
 date: 2025-12-16
 categories: [技術, プログラミング, Python]
+published: true
 math: true
 ---
 
