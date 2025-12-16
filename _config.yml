@@ -20,3 +20,5 @@ comments:
 
 plugins:
   - jekyll-seo-tag
+
+show_drafts: false # trueだと_drafts/がすべての人に見えるようになる
