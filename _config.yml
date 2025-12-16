@@ -17,3 +17,6 @@ comments:
   utterances:
     theme: "github-light" # 見た目のテーマ
     repository: "ushidakyotaro/ushidakyotaro.github.io" # あなたのリポジトリ名
+
+plugins:
+  - jekyll-seo-tag

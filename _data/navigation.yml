@@ -5,6 +5,6 @@ main:
   - title: "Article"
     url: /article/
   - title: "About"
-    url: /about/
+    url: /cv/
   - title: "Contact"
     url: /contact/

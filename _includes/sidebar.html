@@ -4,6 +4,11 @@
   <p>研究内容や興味関心について一言。</p>
 </div>
 
+<!-- SNS -->
+{% for item in site.data.social %}
+  <a href="{{ item.url }}"><i class="{{ item.icon }}"></i></a>
+{% endfor %}
+
 <div class="category-list">
   <h3>Categories</h3>
   <ul>
