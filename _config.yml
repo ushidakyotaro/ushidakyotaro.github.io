@@ -2,7 +2,7 @@ theme: jekyll-theme-minimal
 # Minimal Mistakesを使う場合は remote_theme: "mmistakes/minimal-mistakes"
 
 # 基本情報の共通設定
-title: "ushidakyotaroのポートフォリオ(作成中)"
+title: "ポートフォリオ(作成中)"
 description: "サイトの説明文"
 
 owner_name: "ushidakyotaro"
