@@ -1,6 +1,9 @@
 theme: jekyll-theme-minimal
-math: 
-  engine: katex
+# Minimal Mistakesを使う場合は remote_theme: "mmistakes/minimal-mistakes"
+
+# 数式 (KaTeX) を使う場合、kramdownの設定が必要なことがあります
+kramdown:
+  math_engine: katex
 
 comments:
   provider: "utterances"
