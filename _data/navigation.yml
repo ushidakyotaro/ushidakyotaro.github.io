@@ -1,0 +1,10 @@
+# _data/navigation.yml の例
+main:
+  - title: "ホーム"
+    url: /
+  - title: "ブログ"
+    url: /blog/
+  - title: "ポートフォリオ"
+    url: /portfolio/
+  - title: "問い合わせ"
+    url: /contact/
