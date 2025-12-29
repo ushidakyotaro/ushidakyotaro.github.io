@@ -8,6 +8,14 @@ $text-black: #333333;
 $bg-gray: #f5f6f7;
 $border-gray: #e6e6e6;
 
+/* --- [重要] テーマの干渉をリセット --- */
+/* Jekyll MinimalテーマがPC画面で要素を浮かせる設定を解除します */
+.wrapper {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* 1. 全体の基本設定 */
 html, body {
   margin: 0;
   padding: 0;
@@ -17,7 +25,7 @@ html, body {
 }
 
 body {
-  display: flex;
+  display: block;
   flex-direction: column;/* 中身（wrap）を縦に並べる */
   // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   // color: $text-black;
@@ -42,11 +50,14 @@ body {
 
 // ヘッダーを横並びにし、ロゴとメニューを両端に
 header {
+  width: 100%;
+  top: 0;
+  position: relative;
   display: flex;
   flex-wrap: wrap; // スマホで折り返し可能に
   flex-shrink: 0;
-  // justify-content: space-between; // 両端に寄せる
-  // align-items: center;
+  justify-content: space-between; // 両端に寄せる
+  align-items: center;
   padding: 20px 30px;
   border-bottom: 1px solid #eee;
   background: #fff;
@@ -87,15 +98,18 @@ header {
 }
 
 #sidebar {
-  width: 280px;        /* サイドバーの固定幅 */
+  width: 200px;        /* サイドバーの固定幅 */
   flex-shrink: 0;
-  position: sticky; /* スクロールしても位置を維持 */
+  position: relative; /* スクロールしても位置を維持 */
   h3{ font-size: 1.2rem; margin-top: 0; }
   ul { list-style: none; padding: 0;}
 }
 
 // --- フッター ---
 footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
   flex-shrink: 0;
   padding: 20px;
   text-align: center;
