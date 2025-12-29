@@ -42,6 +42,10 @@
 
 プッシュする: GitHub にプッシュすると、正式な記事として公開されます。
 
+# 記事を書く時の注意
+カテゴリー：
+        順番を守る: 必ず [親, 子, 孫] の順で書く（パンくずリストは書かれた順にループするため）。
+
 # comment
 <script src="https://utteranc.es/client.js"
         repo="ushidakyotaro/ushidakyotaro.github.io"
