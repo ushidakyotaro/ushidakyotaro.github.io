@@ -2,12 +2,18 @@ experience:
   - period: "2022.04 - 現在"
     title: "東京大学 工学部 機械情報工学科"
     description: "基盤Sに参加"
+  - period: "2022.04"
+    title: "東京大学 教養学部 前期課程 理科一類 入学"
 
 awards:
-  - date: "2025.12"
+  - date: "2024.12"
     title: "Sensing Solution ハッカソン2024 ベスト・フィールドセンシング賞"
     organization: "ソニーグループ株式会社"
     url: "https://sensing-solution-hackathon.sonyged.com/2024_report"
+  - date: "2024.12"
+    title: "(学科) 自主プロジェクト プレゼンテーション賞 受賞"
+    description: "Real Turtle Talk の実装と発表"
+    organization: "東京大学 工学部 機械情報工学科"
 
 papers:
   - date: ""

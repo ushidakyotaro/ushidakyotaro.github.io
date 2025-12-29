@@ -1,13 +1,38 @@
----
-layout: default
----
-<h1>Category: {{ page.title }}</h1>
+<div id="category-posts">
+  {% for category in site.categories %}
+    {% capture category_name %}{{ category[0] | slugify }}{% endcapture %}
+    <div class="category-group" id="group-{{ category_name }}" style="display:none;">
+      
+      <div class="sub-categories">
+        <h3>関連するサブカテゴリー:</h3>
+        <ul class="tag-list">
+          {% assign current_cat = category[0] %}
+          {% for other_cat in site.categories %}
+            {% if other_cat[0] != current_cat %}
+              {% assign is_sub = false %}
+              {% for post in other_cat[1] %}
+                {% if post.categories contains current_cat %}
+                  {% assign is_sub = true %}
+                {% endif %}
+              {% endfor %}
+              
+              {% if is_sub %}
+                <li><a href="#{{ other_cat[0] | slugify }}">{{ other_cat[0] }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
 
-<ul class="post-list">
-  {% for post in site.categories[page.category] %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
+      <h3>記事一覧:</h3>
+      <ul class="post-list">
+        {% for post in category[1] %}
+          <li>
+            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endfor %}
-</ul>
+</div>
