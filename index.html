@@ -31,6 +31,26 @@ title: "home"    # ページのタイトルを指定
   </ul>
 </section>
 
+<section class="news-section">
+  <h2><i class="fa-solid fa-bullhorn"></i> Latest News</h2>
+  <ul class="post-list-detailed">
+    {% assign latest_news = site.news | reversed %}
+    {% for item in latest_news limit:3 %}
+      <li class="post-item">
+        <span class="post-date">{{ item.date | date: "%Y.%m.%d" }}</span>
+        <a href="{{ item.url | relative_url }}" class="post-link">
+          {{ item.title }}
+        </a>
+      </li>
+    {% else %}
+      <li>現在、新しいお知らせはありません。</li>
+    {% endfor %}
+  </ul>
+  <div style="text-align: right; margin-top: 10px;">
+    <a href="{{ '/news/' | relative_url }}">もっと見る →</a>
+  </div>
+</section>
+
 <section id="experience">
   <h2>Experience</h2>
   <ul>
