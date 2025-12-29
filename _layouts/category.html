@@ -1,31 +1,25 @@
+---
+layout: default
+title: "Categories"
+permalink: /categories/
+---
+
+<h1>Category: <span id="category-name">Select a Category</span></h1>
+
+<div class="category-tags">
+  {% assign categories = site.categories | sort %}
+  {% for category in categories %}
+    <a href="#{{ category[0] | slugify }}" class="tag-link">{{ category[0] }} ({{ category[1] | size }})</a>
+  {% endfor %}
+</div>
+
+<hr>
+
 <div id="category-posts">
   {% for category in site.categories %}
-    {% capture category_name %}{{ category[0] | slugify }}{% endcapture %}
-    <div class="category-group" id="group-{{ category_name }}" style="display:none;">
-      
-      <div class="sub-categories">
-        <h3>関連するサブカテゴリー:</h3>
-        <ul class="tag-list">
-          {% assign current_cat = category[0] %}
-          {% for other_cat in site.categories %}
-            {% if other_cat[0] != current_cat %}
-              {% assign is_sub = false %}
-              {% for post in other_cat[1] %}
-                {% if post.categories contains current_cat %}
-                  {% assign is_sub = true %}
-                {% endif %}
-              {% endfor %}
-              
-              {% if is_sub %}
-                <li><a href="#{{ other_cat[0] | slugify }}">{{ other_cat[0] }}</a></li>
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-
-      <h3>記事一覧:</h3>
-      <ul class="post-list">
+    {% capture category_id %}{{ category[0] | slugify }}{% endcapture %}
+    <div class="category-group" id="group-{{ category_id }}" style="display:none;">
+      <h3>{{ category[0] }}</h3> <ul class="post-list">
         {% for post in category[1] %}
           <li>
             <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
@@ -36,3 +30,36 @@
     </div>
   {% endfor %}
 </div>
+
+<script>
+  function filterCategory() {
+    // 1. ハッシュを取得してデコード（日本語対策）
+    const rawHash = window.location.hash.substring(1);
+    const hash = decodeURIComponent(rawHash); 
+    
+    const groups = document.querySelectorAll('.category-group');
+    const nameDisplay = document.getElementById('category-name');
+    
+    // 一旦すべて非表示
+    groups.forEach(g => g.style.display = 'none');
+
+    if (hash) {
+      // 2. IDと一致するグループを表示
+      const target = document.getElementById('group-' + hash);
+      if (target) {
+        target.style.display = 'block';
+        // 3. 表示名を調整（タグ一覧の中に元の名前があればそれを使う）
+        nameDisplay.innerText = hash;
+      } else {
+        nameDisplay.innerText = "Category not found";
+      }
+    } else {
+      nameDisplay.innerText = "Select a category";
+    }
+  }
+
+  // 読み込み時とハッシュ変更時に実行
+  window.addEventListener('hashchange', filterCategory);
+  // onloadよりDOMContentLoadedの方が実行が早く、安定します
+  window.addEventListener('DOMContentLoaded', filterCategory);
+</script>

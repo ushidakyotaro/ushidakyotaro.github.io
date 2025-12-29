@@ -4,7 +4,7 @@
   {% if page.categories %}
     {% for category in page.categories %}
       &nbsp;>&nbsp;
-      <a href="{{ '/categories/#' | relative_url }}{{ category | slugify }}">{{ category }}</a>
+      <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
     {% endfor %}
   {% endif %}
   
