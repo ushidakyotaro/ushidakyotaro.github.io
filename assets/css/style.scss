@@ -260,3 +260,18 @@ pre, code {
     }
   }
 }
+
+.news-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #fffdf0; /* ほんのり黄色にして「お知らせ」感を出す */
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: #856404;
+    border: none;
+  }
+}

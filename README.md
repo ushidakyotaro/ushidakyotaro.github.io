@@ -9,6 +9,7 @@
 ├── cv.md                   # 詳細な経歴・受賞歴を表示するページ
 ├── categories.html         # 全カテゴリーの記事をハッシュ(#)で切り替えて出すページ
 ├── contact.md              # お問い合わせページ（Googleフォーム埋め込み等）
+├── news.md                 # newsを表示
 │
 ├── _data/                  # サイトのコンテンツデータを管理
 │   ├── navigation.yml      # ヘッダーメニューのリンク集
@@ -26,6 +27,7 @@
 │   └── post.html           # ブログ記事専用のレイアウト
 │
 ├── _posts/                 # 公開済みのブログ記事（YYYY-MM-DD-title.md）
+├── _news/                 # 公開済みのnews記事（YYYY-MM-DD-title.md）
 ├── _drafts/                # 下書き中の記事（本番には表示されない）
 │
 └── assets/                 # 画像やスタイルシートなどの素材

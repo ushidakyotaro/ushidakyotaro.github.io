@@ -4,6 +4,8 @@ main:
     url: /
   - title: "Article"
     url: /article/
+  - title: "News"
+    url: /news/
   - title: "About"
     url: /cv/
   - title: "Contact"
