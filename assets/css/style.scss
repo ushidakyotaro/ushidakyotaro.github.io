@@ -48,10 +48,10 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* デバッグ用：要素の範囲を色付けする */
-header { border: 5px solid red !important; }   /* ヘッダーは赤 */
-#main-content { border: 5px solid blue !important; } /* メインは青 */
-footer { border: 5px solid green !important; }  /* フッターは緑 */
+// /* デバッグ用：要素の範囲を色付けする */
+// header { border: 5px solid red !important; }   /* ヘッダーは赤 */
+// #main-content { border: 5px solid blue !important; } /* メインは青 */
+// footer { border: 5px solid green !important; }  /* フッターは緑 */
 
 // ヘッダーを横並びにし、ロゴとメニューを両端に
 header {
