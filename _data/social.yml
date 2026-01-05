@@ -7,6 +7,11 @@
 - name: "GitHub"
   url: "https://github.com/ushidakyotaro"
   icon: "fab fa-github"
-- name: "Qiita"
-  url: "https://qiita.com/your_id"
-  icon: "fas fa-search"
+  
+# - name: "Qiita"
+#   url: "https://qiita.com/your_id"
+#   icon: "fas fa-search"
+
+# - name: "Note"
+#   url: "https://note.com/あなたのID"
+#   icon: "fas fa-pencil-alt"
