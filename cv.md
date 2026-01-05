@@ -3,26 +3,65 @@ layout: default
 title: "CV"
 ---
 
-<h1>Curriculum Vitae</h1>
+
+<h1>CV</h1>
+<h2>Education</h2>
+<table class="account-table">
+  <tbody>
+    {% for item in site.data.cv.education %}
+      <tr>
+        <th>{{ item.period }}</th>
+        <td>
+            <strong>{{ item.institution }}</strong><br>
+            {{ item.degree }}
+            {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">{{ item.description }}</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 <h2>Experience</h2>
-<dl>
-  {% for item in site.data.cv.experience %}
-    <dt><strong>{{ item.period }}</strong></dt>
-    <dd>{{ item.title }}{% if item.description %}<br>{{ item.description }}{% endif %}</dd>
+<table class="account-table">
+  <tbody>
+    {% for item in site.data.cv.experience %}
+      <tr>
+        <th>{{ item.period }}</th>
+        <td>
+            <strong>{{ item.title }}</strong><br>
+            {{ item.organization }}
+            {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">- {{ item.description }}</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Publications</h2>
+<ul class="post-list-detailed">
+  {% for paper in site.data.cv.papers %}
+    <li class="post-item" style="display: block; padding: 10px 0;">
+        <div style="font-weight: bold;">{{ paper.title }}</div>
+        <div style="font-size: 0.95rem;">
+            {{ paper.authors }}. 
+            <i>{{ paper.conference }}</i>, {{ paper.location }}.
+            <span style="color: #666;">{{ paper.date }}</span>
+        </div>
+    </li>
   {% endfor %}
-</dl>
+</ul>
 
 <h2>Awards</h2>
-<ul>
-  {% for award in site.data.cv.awards %}
-    <li>{{ award.date }}: {{ award.title }} ({{ award.organization }})</li>
-  {% endfor %}
-</ul>
-
-<h2>Papers</h2>
-<ul>
-  {% for paper in site.data.cv.papers %}
-    <li>{{ paper.date }}: {{ paper.title }} </li>
-  {% endfor %}
-</ul>
+<table class="account-table">
+  <tbody>
+    {% for award in site.data.cv.awards %}
+      <tr>
+        <th>{{ award.date }}</th>
+        <td>
+            <strong>{{ award.title }}</strong><br>
+            {{ award.organization }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

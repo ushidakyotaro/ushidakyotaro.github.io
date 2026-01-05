@@ -15,3 +15,7 @@
 # - name: "Note"
 #   url: "https://note.com/あなたのID"
 #   icon: "fas fa-pencil-alt"
+
+# - name: Google Scholar
+#   url: https://scholar.google.com/citations?user=...
+#   icon: fas fa-graduation-cap

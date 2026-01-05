@@ -1,9 +1,19 @@
-experience:
+education:
   - period: "2022.04 - 現在"
-    title: "東京大学 工学部 機械情報工学科"
-    description: "基盤Sに参加"
+    institution: "東京大学 工学部 機械情報工学科"
+    # description: "基盤Sに参加"
   - period: "2022.04"
-    title: "東京大学 教養学部 前期課程 理科一類 入学"
+    institution: "東京大学 教養学部 前期課程 理科一類 入学"
+
+experience: # 職歴とかインターンとか
+  - period: "2025.4 - 現在"
+    title: "基盤S 脳モデルに基づく道徳観萌芽の構成論 参加"
+    organization: "UTokyo ISI lab"
+    url: ""
+  - period: "2025.3 - 現在"
+    title: "紀州南高梅に関するIT化"
+    organization: "株式会社うめひかり"
+    url: ""
 
 awards:
   - date: "2025.01"
