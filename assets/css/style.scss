@@ -65,7 +65,7 @@ header {
   align-items: center;
   padding: 20px 30px;
   border-bottom: 1px solid #eee;
-  background: #fff;
+  background: #ffffff;
   box-sizing: border-box;
 
   h1 { 
@@ -106,7 +106,17 @@ header {
   width: 200px;        /* サイドバーの固定幅 */
   flex-shrink: 0;
   position: relative; /* スクロールしても位置を維持 */
-  h3{ font-size: 1.2rem; margin-top: 0; }
+  background-color: #ffffff; /* 薄いグレー */
+
+  h3 { 
+    font-size: 1.2rem; 
+    margin-top: 0; 
+    color: #445566; /* 見出しの色も少し青みのあるグレーに */
+    border-bottom: 2px solid #ddd; /* 下線を追加してメリハリを出す */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
   ul { list-style: none; padding: 0;}
 }
 
@@ -140,6 +150,7 @@ header {
     flex-direction: column; /* ロゴとメニューを縦に */
     text-align: center;
     gap: 15px;
+    background: #f4f8fb;
   }
 
   #main-content {
@@ -274,4 +285,183 @@ pre, code {
     color: #856404;
     border: none;
   }
+}
+
+/* --- 記事ページのデザイン --- */
+
+/* 記事全体の枠 */
+.post-container {
+    max-width: 800px; /* 読みやすい幅に制限 */
+    margin: 0 auto;   /* 中央寄せ */
+    padding: 20px 0;
+}
+
+/* ヘッダー周り */
+.post-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee; /* 下に薄い線 */
+    padding-bottom: 20px;
+}
+
+.post-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a4c75;
+    line-height: 1.3;
+}
+
+.post-meta {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.post-category-tag {
+    margin-left: 15px;
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* 本文のデザイン（読みやすさ重視） */
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.8; /* 行間を広めに */
+    color: #444;
+    margin-bottom: 50px;
+}
+
+/* 本文中の見出し (h2) */
+.post-content h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #333; /* しっかりした下線 */
+    padding-bottom: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* 本文中の見出し (h3) */
+.post-content h3 {
+    font-size: 1.25rem;
+    border-left: 5px solid #333; /* 左に縦線 */
+    padding-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* リンクの色 */
+.post-content a {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* フッターの戻るボタン */
+.post-footer {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* --- Contactページのデザイン --- */
+
+.contact-container {
+  max-width: 800px;
+  // margin: 0 auto;
+  margin: 0;
+  width:100%;
+}
+
+.contact-intro {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-intro h1 {
+  font-size: 2rem;
+  color: #1a4c75; /* 記事タイトルと同じネイビー */
+  margin-bottom: 20px;
+}
+
+.contact-email-box {
+  background: #f4f8fb; /* ヘッダーと同じ薄い青グレー */
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 50px; /* 丸くする */
+  font-size: 1.1rem;
+  color: #333;
+  margin: 20px 0;
+  border: 1px solid #dae1e7;
+}
+
+.contact-email-box i {
+  color: #1a4c75;
+  margin-right: 10px;
+}
+
+.contact-email-box a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-email-box a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 40px 0;
+}
+
+.form-section h2 {
+  font-size: 1.5rem;
+  color: #445566;
+  border-left: 5px solid #1a4c75;
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+
+/* SNSボタン（もし使う場合） */
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.social-btn:hover {
+  background: #f9f9f9;
+  color: #1a4c75;
+  border-color: #1a4c75;
 }
