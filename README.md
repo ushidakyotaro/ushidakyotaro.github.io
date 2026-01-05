@@ -29,6 +29,7 @@
 ├── _posts/                 # 公開済みのブログ記事（YYYY-MM-DD-title.md）
 ├── _news/                 # 公開済みのnews記事（YYYY-MM-DD-title.md）
 ├── _drafts/                # 下書き中の記事（本番には表示されない）
+├── Gemfile                 # ローカルでjekyllを使うようの設定
 │
 └── assets/                 # 画像やスタイルシートなどの素材
     ├── css/
@@ -36,6 +37,7 @@
     └── images/
         ├── profile.jpg     # サイドバーに表示する顔写真
         └── favicon.ico     # ブラウザのタブに表示されるアイコン
+
 ```
 # 公開方法
 ファイル名を変更する: YYYY-MM-DD-タイトル.md の形式に日付を付けます。

@@ -8,6 +8,11 @@ description: "サイト作成中です！"
 
 owner_name: "ushidakyotaro"
 
+collections:
+  news:
+    output: true
+    permalink: /news/:title/
+  
 # 数式 (KaTeX) を使う場合、kramdownの設定が必要なことがあります
 kramdown:
   math_engine: katex
