@@ -72,7 +72,17 @@ header {
     margin: 0; 
     font-size: 1.5rem;
     color: $qiita-blue;
-    white-space: nowrap; // ロゴの改行防止
+    /* --- 修正ポイント --- */
+    white-space: normal;    // nowrap（改行禁止）を解除して通常設定に
+    word-break: break-all; // 非常に長い英単語などがあっても強制的に折り返す
+    line-height: 1.3;      // 2行になった時の行間を調整
+    flex: 1;               // タイトルエリアが柔軟に広がるように
+    min-width: 0;          // Flexbox内での文字溢れ防止
+    /* ------------------ */
+  }
+  
+  nav {
+    flex-shrink: 0;        // ナビゲーションメニューが潰されないように固定
   }
   
   nav ul {

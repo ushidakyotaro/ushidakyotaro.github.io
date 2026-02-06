@@ -39,6 +39,35 @@
         └── favicon.ico     # ブラウザのタブに表示されるアイコン
 
 ```
+
+# ローカルで確認する方法
+```
+sudo apt update
+sudo apt install ruby-full build-essential zlib1g-dev
+
+gem install jekyll bundler
+bundle install
+bundle exec jekyll serve
+```
+
+```
+cd ~/docker/jekell_site
+docker compose up
+```
+
+# github pagesに公開する方法
+```
+# 1. 変更したファイルをステージングに追加
+git add .
+
+# 2. コミットメッセージを付けて確定
+git commit -m "Add new post: 記事のタイトル"
+
+# 3. GitHubへ送信
+git push origin main
+```
+
+
 # 公開方法
 ファイル名を変更する: YYYY-MM-DD-タイトル.md の形式に日付を付けます。
 
