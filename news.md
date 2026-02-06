@@ -12,3 +12,5 @@ permalink: /news/
     </li>
   {% endfor %}
 </ul>
+
+<p>ニュースの数: {{ site.news | size }}</p>

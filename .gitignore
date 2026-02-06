@@ -1,3 +1,6 @@
 memo.md
 _site
 Gemfile.lock
+.jekyll-cache
+.jekyll-metadata
+_drafts

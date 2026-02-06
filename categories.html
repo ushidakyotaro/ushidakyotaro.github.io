@@ -4,27 +4,55 @@ title: "Categories"
 permalink: /categories/
 ---
 
+{% comment %}
+  1. すべての投稿（posts）とニュース（news）を合体させたリストを作成
+{% endcomment %}
+{% assign all_content = site.posts | concat: site.news %}
+
+{% comment %}
+  2. 合体リストから、重複のないカテゴリー一覧を作成
+{% endcomment %}
+{% assign raw_categories = "" | split: "" %}
+{% for item in all_content %}
+  {% for cat in item.categories %}
+    {% assign raw_categories = raw_categories | push: cat %}
+  {% endfor %}
+{% endfor %}
+{% assign unique_categories = raw_categories | uniq | sort %}
+
 <h1>Category: <span id="category-name">All</span></h1>
 
 <div class="category-tags">
-  {% assign categories = site.categories | sort %}
-  {% for category in categories %}
-    <a href="#{{ category[0] | slugify }}" class="tag-link">{{ category[0] }} ({{ category[1] | size }})</a>
+  {% for category in unique_categories %}
+    {% comment %} 各カテゴリーに属する合計件数を計算 {% endcomment %}
+    {% assign count = 0 %}
+    {% for item in all_content %}
+      {% if item.categories contains category %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    <a href="#{{ category | slugify }}" class="tag-link">{{ category }} ({{ count }})</a>
   {% endfor %}
 </div>
 
 <hr>
 
 <div id="category-posts">
-  {% for category in site.categories %}
-    {% capture category_name %}{{ category[0] | slugify }}{% endcapture %}
-    <div class="category-group" id="group-{{ category_name }}" style="display:none;">
+  {% for category in unique_categories %}
+    <div class="category-group" id="group-{{ category | slugify }}" style="display:none;">
       <ul class="post-list">
-        {% for post in category[1] %}
-          <li>
-            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </li>
+        {% comment %} 日付の新しい順に並び替えて表示 {% endcomment %}
+        {% assign category_items = all_content | sort: 'date' | reverse %}
+        {% for item in category_items %}
+          {% if item.categories contains category %}
+            <li>
+              <span class="post-date">{{ item.date | date: "%Y.%m.%d" }}</span>
+              {% if item.path contains '_news/' %}
+                <span style="font-size: 0.7em; color: #e67e22; border: 1px solid #e67e22; padding: 1px 4px; margin-right: 5px; border-radius: 3px; vertical-align: middle;">NEWS</span>
+              {% endif %}
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>
@@ -33,24 +61,28 @@ permalink: /categories/
 
 <script>
   function filterCategory() {
-    const hash = window.location.hash.substring(1); // #以降を取得
+    // URLのハッシュを取得し、デコードする（日本語対応）
+    const hash = decodeURIComponent(window.location.hash.substring(1));
     const groups = document.querySelectorAll('.category-group');
     const nameDisplay = document.getElementById('category-name');
     
+    // 全てを一旦非表示
+    groups.forEach(g => g.style.display = 'none');
+
     if (hash) {
-      groups.forEach(g => g.style.display = 'none');
+      // IDが "group-カテゴリー名" のものを探す
       const target = document.getElementById('group-' + hash);
       if (target) {
         target.style.display = 'block';
-        nameDisplay.innerText = decodeURIComponent(hash);
+        nameDisplay.innerText = hash;
+      } else {
+        nameDisplay.innerText = "Select a category";
       }
     } else {
-      // ハッシュがない場合は全部出すか、メッセージを出す
       nameDisplay.innerText = "Select a category";
     }
   }
 
-  // 読み込み時とハッシュ変更時に実行
   window.addEventListener('hashchange', filterCategory);
-  window.onload = filterCategory;
+  document.addEventListener('DOMContentLoaded', filterCategory);
 </script>
