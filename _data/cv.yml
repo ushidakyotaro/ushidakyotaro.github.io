@@ -1,9 +1,12 @@
 education:
-  - period: "2022.04 - 現在"
+  - period: "2026.04 - 2028.03(予定)"
+    institution: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻"
+    # description: "基盤Sに参加"
+  - period: "2024.04 - 2026.03"
     institution: "東京大学 工学部 機械情報工学科"
     # description: "基盤Sに参加"
-  - period: "2022.04"
-    institution: "東京大学 教養学部 前期課程 理科一類 入学"
+  - period: "2022.04 - 2024.03"
+    institution: "東京大学 教養学部 前期課程 理科一類"
 
 experience: # 職歴とかインターンとか
   - period: "2025.4 - 現在"
