@@ -19,3 +19,7 @@
 # - name: Google Scholar
 #   url: https://scholar.google.com/citations?user=...
 #   icon: fas fa-graduation-cap
+
+- name: "Youtube"
+  url: "https://www.youtube.com/@k-ushida"
+  icon: "fab fa-youtube"
