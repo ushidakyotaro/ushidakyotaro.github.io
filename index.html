@@ -2,15 +2,21 @@
 layout: default # ステップ1で作成したレイアウトを指定
 title: "home"    # ページのタイトルを指定
 ---
-<section class="hero">
-  <h1>Welcome</h1>
-  <p></p>
+<section class="hero" style="padding: 40px 0; border-bottom: 1px solid #eee; margin-bottom: 30px;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 10px;">{{ site.data.cv.name | default: "Kyotaro Ushida" }}</h1>
+  <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+    <strong>{{ site.data.cv.education[0].institution }}</strong> {{ site.data.cv.education[0].degree }}<br>
+    専門：発達ロボティクス、記号創発、教師なし表現学習
+  </p>
+  <p style="font-size: 0.95rem; color: #666;">
+    ロボットが自律的に世界の構造を理解するプロセスの構築を目指して研究しています。
+  </p>
 </section>
 
 <section class="news-section">
   <h2><i class="fa-solid fa-bullhorn"></i> Latest News</h2>
   <ul class="post-list-detailed">
-    {% assign latest_news = site.news | reversed %}
+    {% assign latest_news = site.news | sort:"date" | reversed %}
     {% for item in latest_news limit:3 %}
       <li class="post-item">
         <span class="post-date">{{ item.date | date: "%Y.%m.%d" }}</span>
@@ -27,8 +33,38 @@ title: "home"    # ページのタイトルを指定
   </div>
 </section>
 
-<section id="accounts">
-  <h2>Accounts</h2>
+<section id="highlights" style="margin-top: 40px;">
+  <h2><i class="fa-solid fa-flask"></i> Research Highlights</h2>
+  <ul class="post-list-detailed">
+    {% for paper in site.data.cv.papers limit:1 %}
+    <li class="post-item">
+      <span class="post-date">{{ paper.date }}</span>
+      <div style="display: inline-block; margin-left: 10px;">
+        <strong>{{ paper.title }}</strong><br>
+        <small>{{ paper.conference }}</small>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <div style="text-align: right; margin-top: 10px;">
+    <a href="{{ '/cv/' | relative_url }}">詳細なCV・研究実績 →</a>
+  </div>
+</section>
+
+<section id="recent-posts" style="margin-top: 40px;">
+  <h2><i class="fa-solid fa-pen-nib"></i> Recent Blog Posts</h2>
+  <ul class="post-list">
+    {% for post in site.posts limit:3 %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="accounts" style="margin-top: 40px;">
+  <h2><i class="fa-solid fa-link"></i> Links / Accounts</h2>
   <table class="account-table">
     {% for item in site.data.social %}
     <tr>
@@ -39,30 +75,8 @@ title: "home"    # ページのタイトルを指定
   </table>
 </section>
 
-<section id="recent-posts">
-  <h2>Recent Posts</h2>
-  <ul class="post-list">
-    {% for post in site.posts limit:5 %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
 
-
-
-<!-- <section id="experience">
-  <h2>Experience</h2>
-  <ul>
-    {% for item in site.data.cv.experience limit:2 %}
-        <li>{{ item.period }}: {{ item.title }}</li>
-    {% endfor %}
-   </ul> -->
-<!-- </section>
-
-<section id="awards">
+<!-- <section id="awards">
   <h2>Awards</h2>
   <ul>
     {% for item in site.data.cv.awards limit:2 %}
@@ -78,4 +92,4 @@ title: "home"    # ページのタイトルを指定
                     <li>{{ paper.date }}: {{ paper.title }} </li>
                 {% endfor %}
         </ul>
-</section> -->
+</section> --> 
