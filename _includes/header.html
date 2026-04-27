@@ -10,4 +10,11 @@
         {% endfor %}
         </ul>
     </nav>
+    <!-- <nav>
+        {% if page.url contains '/en/' %}
+            <a href="{{ page.url | replace: '/en/', '/jp/' }}">日本語</a>
+        {% else %}
+            <a href="{{ page.url | prepend: '/en' }}">English</a>
+        {% endif %}
+    </nav> -->
 </header>
