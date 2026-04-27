@@ -3,7 +3,6 @@ layout: default
 title: "CV"
 ---
 
-
 <h1>CV</h1>
 <h2>Education</h2>
 <table class="account-table">
@@ -12,7 +11,11 @@ title: "CV"
       <tr>
         <th>{{ item.period }}</th>
         <td>
-            <strong>{{ item.institution }}</strong><br>
+            <strong>
+              {% if item.url %}<a href="{{ item.url }}" target="_blank">{% endif %}
+              {{ item.institution }}
+              {% if item.url %}</a>{% endif %}
+            </strong><br>
             {{ item.degree }}
             {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">{{ item.description }}</span>{% endif %}
         </td>
@@ -28,7 +31,11 @@ title: "CV"
       <tr>
         <th>{{ item.period }}</th>
         <td>
-            <strong>{{ item.title }}</strong><br>
+            <strong>
+              {% if item.url %}<a href="{{ item.url }}" target="_blank">{% endif %}
+              {{ item.title }}
+              {% if item.url %}</a>{% endif %}
+            </strong><br>
             {{ item.organization }}
             {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">- {{ item.description }}</span>{% endif %}
         </td>
@@ -41,7 +48,11 @@ title: "CV"
 <ul class="post-list-detailed">
   {% for paper in site.data.cv.papers %}
     <li class="post-item" style="display: block; padding: 10px 0;">
-        <div style="font-weight: bold;">{{ paper.title }}</div>
+        <div style="font-weight: bold;">
+          {% if paper.url %}<a href="{{ paper.url }}" target="_blank">{% endif %}
+          {{ paper.title }}
+          {% if paper.url %}</a>{% endif %}
+        </div>
         <div style="font-size: 0.95rem;">
             {{ paper.authors }}. 
             <i>{{ paper.conference }}</i>, {{ paper.location }}.
@@ -58,7 +69,11 @@ title: "CV"
       <tr>
         <th>{{ award.date }}</th>
         <td>
-            <strong>{{ award.title }}</strong><br>
+            <strong>
+              {% if award.url %}<a href="{{ award.url }}" target="_blank">{% endif %}
+              {{ award.title }}
+              {% if award.url %}</a>{% endif %}
+            </strong><br>
             {{ award.organization }}
         </td>
       </tr>
