@@ -1,9 +1,15 @@
-# - name: "Twitter (X)"
-#   url: "https://twitter.com/your_id"
-#   icon: "fab fa-twitter"
-- name: "Instagram"
-  url: "https://www.instagram.com/ushikyo_"
-  icon: "fab fa-instagram"
+- name: "Twitter (X)"
+  url: "https://x.com/ushidakyotaro"
+  icon: "fab fa-twitter"
+
+# - name: "Instagram"
+#   url: "https://www.instagram.com/------"
+#   icon: "fab fa-instagram"
+
+- name: "Youtube"
+  url: "https://www.youtube.com/@k-ushida"
+  icon: "fab fa-youtube"
+
 - name: "GitHub"
   url: "https://github.com/ushidakyotaro"
   icon: "fab fa-github"
@@ -16,10 +22,7 @@
 #   url: "https://note.com/あなたのID"
 #   icon: "fas fa-pencil-alt"
 
-# - name: Google Scholar
-#   url: https://scholar.google.com/citations?user=...
-#   icon: fas fa-graduation-cap
 
-- name: "Youtube"
-  url: "https://www.youtube.com/@k-ushida"
-  icon: "fab fa-youtube"
+- name: "Google Scholar"
+  url: "https://scholar.google.co.jp/citations?view_op=list_works&hl=ja&user=mE6t0nUAAAAJ"
+  icon: "fas fa-graduation-cap"

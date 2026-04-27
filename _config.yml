@@ -10,6 +10,8 @@ description: "サイト作成中です！"
 owner_name: "ushidakyotaro"
 email: k-ushida@isi.imi.i.u-tokyo.ac.jp
 
+lang: ["ja", "en", "fr"]
+
 collections:
   news:
     output: true
