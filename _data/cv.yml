@@ -20,13 +20,13 @@ experience: # 職歴とかインターンとか
     url: "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-25K24741/"
 
   - period: "2025.3 - 現在"
-    title: "紀州南高梅に関するIT化"
+    title: "紀州南高梅の選果・塩蔵等に関するIT支援"
     organization: "株式会社うめひかり"
     url: 
 
   - period: "2024.8"
     title: "産業実習 農業用機械の自動化に関する研究開発インターンシップ"
-    organization: "株式会社クボタ"
+    organization: "株式会社クボタ / 東京大学工学部機械系"
     url: 
 
 awards:
