@@ -4,6 +4,16 @@ title: "CV"
 ---
 
 <h1>CV</h1>
+
+<h2>Keywords</h2>
+<div style="margin-bottom: 20px;">
+  {% for keyword in site.data.cv.keywords %}
+    <span style="display: inline-block; background-color: #f0f0f0; color: #333; padding: 4px 10px; border-radius: 16px; margin: 0 5px 5px 0; font-size: 0.9em;">
+      {{ keyword }}
+    </span>
+  {% endfor %}
+</div>
+
 <h2>Education</h2>
 <table class="account-table">
   <tbody>
@@ -54,13 +64,41 @@ title: "CV"
           {% if paper.url %}</a>{% endif %}
         </div>
         <div style="font-size: 0.95rem;">
-            {{ paper.authors }}. 
-            <i>{{ paper.conference }}</i>, {{ paper.location }}.
+            {% if paper.authors %}{{ paper.authors }}. {% endif %}
+            {% if paper.conference %}<i>{{ paper.conference }}</i>{% endif %}
+            {% if paper.location %}, {{ paper.location }}.{% endif %}
             <span style="color: #666;">{{ paper.date }}</span>
         </div>
     </li>
   {% endfor %}
 </ul>
+
+<h2>Presentations</h2>
+<table class="account-table">
+  <tbody>
+    {% for pres in site.data.cv.presentations %}
+      <tr>
+        <th style="min-width: 100px;">{{ pres.date }}</th>
+        <td>
+            <span style="font-size: 0.85em; color: #666; background: #eee; padding: 2px 6px; border-radius: 4px;">{{ pres.type }}</span><br>
+            <strong style="display: inline-block; margin-top: 4px;">
+              {{ pres.title }}
+            </strong><br>
+            
+            {% if pres.event_url != "" %}
+              <a href="{{ pres.event_url }}" target="_blank">{{ pres.event }}</a>
+            {% else %}
+              {{ pres.event }}
+            {% endif %}
+            
+            {% if pres.news_url != "" %}
+              <span style="margin-left: 10px; font-size: 0.9em;">[<a href="{{ pres.news_url }}" target="_blank">News</a>]</span>
+            {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 <h2>Awards</h2>
 <table class="account-table">

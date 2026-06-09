@@ -10,12 +10,18 @@ education:
 
 experience: # 職歴とかインターンとか
   - period: "2025.4 - 現在"
-    title: "基盤S 脳モデルに基づく道徳観萌芽の構成論 参加"
+    title: "基盤S 内臓を有する赤ちゃん身体－脳モデルに基づく道徳観萌芽の構成論 参加"
     organization: "UTokyo ISI lab"
-    url: ""
+    url: "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-25K24741/"
+
   - period: "2025.3 - 現在"
     title: "紀州南高梅に関するIT化"
     organization: "株式会社うめひかり"
+    url: ""
+
+  - period: "2024.8"
+    title: "産業実習 農業用機械の自動化に関する研究開発インターンシップ"
+    organization: "株式会社クボタ"
     url: ""
 
 awards:
@@ -31,5 +37,33 @@ awards:
 
 papers:
   - date: "2026.04.22"
+    authors: "牛田恭太郎, 小松高歩, 大村吉幸, 國吉康夫"
     title: "Unsupervised Learning of Inter-Object Relationships via Group Homomorphism"
     url: "https://arxiv.org/abs/2604.20925"
+
+presentations:
+  - date: "2026.06.06"
+    type: "講演"
+    title: "人工知能とAgent認識研究から読み解くアニミズム"
+    event: "第2回 高志連 もんぶらん合宿"
+    event_url: ""
+    news_url: ""
+  
+  - date: "2026.06.07"
+    type: "ポスター発表"
+    title: "P-31 群準同型を用いた物体間の関係の教師なし表現学習"
+    event: "日本赤ちゃん学会 第26回学術集会"
+    event_url: "https://jsbs.gr.jp/jsbs2026/"
+    news_url: ""
+
+keywords:
+  - "人工知能"
+  - "機械学習"
+  - "認知科学"
+  - "ロボティクス"
+
+media:
+
+publications:
+
+
