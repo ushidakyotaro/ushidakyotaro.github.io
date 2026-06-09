@@ -39,6 +39,7 @@ papers:
   - date: "2026.04.22"
     authors: "牛田恭太郎, 小松高歩, 大村吉幸, 國吉康夫"
     title: "Unsupervised Learning of Inter-Object Relationships via Group Homomorphism"
+    institution: "arXiv preprint arXiv:2604.20925"
     url: "https://arxiv.org/abs/2604.20925"
 
 presentations:
