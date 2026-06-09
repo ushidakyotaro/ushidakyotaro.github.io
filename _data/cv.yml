@@ -9,6 +9,11 @@ education:
     institution: "東京大学 教養学部 前期課程 理科一類"
 
 experience: # 職歴とかインターンとか
+  - period: "2026.6 - 現在"
+    title: "WIGNS 知能社会国際卓越大学院プログラム(IIW) 修博一貫生"
+    organization: "東京大学大学院 情報理工学系研究科 GCL/IIW事務局"
+    url: "https://www.iiw.i.u-tokyo.ac.jp/"
+
   - period: "2025.4 - 現在"
     title: "基盤S 内臓を有する赤ちゃん身体－脳モデルに基づく道徳観萌芽の構成論 参加"
     organization: "UTokyo ISI lab"
