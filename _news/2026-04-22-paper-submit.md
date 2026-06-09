@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "論文投稿のお知らせ：Unsupervised Learning of Inter-Object Relationships via Group Homomorphism"
+title: "論文投稿：Unsupervised Learning of Inter-Object Relationships via Group Homomorphism"
 date: 2026-04-22
 categories: [news, research, paper]
 published: true
