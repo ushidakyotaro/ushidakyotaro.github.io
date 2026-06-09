@@ -50,11 +50,12 @@ papers:
 presentations:
 
   - date: "2026.06.07"
-    type: "ポスター発表"
+    type: "学会/ポスター発表"
     title: "P-31 群準同型を用いた物体間の関係の教師なし表現学習"
     event: "日本赤ちゃん学会 第26回学術集会"
     event_url: "https://jsbs.gr.jp/jsbs2026/"
     news_url: ""
+
   - date: "2026.06.06"
     type: "講演"
     title: "人工知能とAgent認識研究から読み解くアニミズム"
