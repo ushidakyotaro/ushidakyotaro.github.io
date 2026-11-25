@@ -1,14 +1,21 @@
+{%- assign is_en = false -%}
+{%- if page.lang == 'en' -%}{%- assign is_en = true -%}{%- endif -%}
 <div class="profile-card">
   <h3>Profile</h3>
-  <img src="{{ '/assets/images/profile.png' | relative_url }}" alt="Profile" class="profile-img">
+  <img src="{{ '/assets/images/profile.png' | relative_url }}" alt="{% if is_en %}{{ site.data.cv.name_en }}{% else %}{{ site.data.cv.name }}{% endif %}" class="profile-img">
+  {% if is_en %}
+  <p>I work on AI robotics and cognition.</p>
+  {% else %}
   <p>AIロボットと認知の研究をしています。</p>
+  {% endif %}
 </div>
 
 <!-- SNS -->
 {% for item in site.data.social %}
-  <a href="{{ item.url }}"><i class="{{ item.icon }}"></i></a>
+  <a href="{{ item.url }}" aria-label="{{ item.name }}"><i class="{{ item.icon }}"></i></a>
 {% endfor %}
 
+{% unless is_en %}
 <div class="category-list">
   <h3>Categories</h3>
   <ul>
@@ -22,3 +29,4 @@
     {% endfor %}
   </ul>
 </div>
+{% endunless %}

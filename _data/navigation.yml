@@ -1,4 +1,4 @@
-# _data/navigation.yml の例
+# ヘッダーメニュー。page.lang に応じて main(日本語ページ) / en(英語ページ) が使われる
 main:
   - title: "Home"
     url: /
@@ -10,3 +10,11 @@ main:
     url: /cv/
   - title: "Contact"
     url: /contact/
+
+en:
+  - title: "Home"
+    url: /en/
+  - title: "CV"
+    url: /en/cv/
+  - title: "Contact"
+    url: /en/contact/

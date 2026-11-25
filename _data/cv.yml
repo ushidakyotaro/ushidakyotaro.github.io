@@ -1,48 +1,95 @@
+# 多言語の書き方:
+#   翻訳したい項目は {ja: ..., en: ...} の形で書く。英語版ページ(/en/)では en が、無ければ ja が表示される。
+#   日英で同じ内容（論文タイトルなど）はただの文字列で書いてよい。
+
+name: "牛田 恭太郎"
+name_en: "Kyotaro Ushida"
+
 education:
   - period: "2026.04 - 2028.03(予定)"
-    institution: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻"
+    institution:
+      ja: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻"
+      en: "Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo"
+    degree:
+      ja: "修士課程"
+      en: "Master's Program"
     # description: "基盤Sに参加"
   - period: "2024.04 - 2026.03"
-    institution: "東京大学 工学部 機械情報工学科"
+    institution:
+      ja: "東京大学 工学部 機械情報工学科"
+      en: "Department of Mechano-Informatics, Faculty of Engineering, The University of Tokyo"
+    degree:
+      ja: ""
+      en: "B.Eng. Program"
     # description: "基盤Sに参加"
   - period: "2022.04 - 2024.03"
-    institution: "東京大学 教養学部 前期課程 理科一類"
+    institution:
+      ja: "東京大学 教養学部 前期課程 理科一類"
+      en: "College of Arts and Sciences (Junior Division), Natural Sciences I, The University of Tokyo"
 
 experience: # 職歴とかインターンとか
-  - period: "2026.6 - 現在"
-    title: "WINGS 知能社会国際卓越大学院プログラム(IIW) 修博一貫生"
-    organization: "東京大学大学院 情報理工学系研究科"
+  - period: "2026.06 - 現在"
+    title:
+      ja: "WINGS 知能社会国際卓越大学院プログラム(IIW) 修博一貫生"
+      en: "Integrated Master's-Ph.D. Student, WINGS International Graduate Program for Intelligent Society (IIW)"
+    organization:
+      ja: "東京大学大学院 情報理工学系研究科"
+      en: "Graduate School of Information Science and Technology, The University of Tokyo"
     url: "https://www.iiw.i.u-tokyo.ac.jp/"
 
-  - period: "2025.4 - 現在"
-    title: "基盤S 内臓を有する赤ちゃん身体－脳モデルに基づく道徳観萌芽の構成論 参加"
-    organization: "UTokyo ISI lab"
+  - period: "2025.04 - 現在"
+    title:
+      ja: "基盤S 内臓を有する赤ちゃん身体－脳モデルに基づく道徳観萌芽の構成論 参加"
+      en: "Member, JSPS Grant-in-Aid for Scientific Research (S): A Constructive Approach to the Emergence of Morality Based on an Infant Body-Brain Model with Internal Organs"
+    organization:
+      ja: "UTokyo ISI lab"
+      en: "ISI Lab, The University of Tokyo"
     url: "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-25K24741/"
 
-  - period: "2025.3 - 現在"
-    title: "紀州南高梅の選果・塩蔵等に関するIT支援"
-    organization: "株式会社うめひかり"
-    url: 
+  - period: "2025.03 - 現在"
+    title:
+      ja: "紀州南高梅の選果・塩蔵等に関するIT支援"
+      en: "IT support for sorting and salt-curing of Kishu Nanko plums"
+    organization:
+      ja: "株式会社うめひかり"
+      en: "Umehikari Co., Ltd."
+    url:
 
-  - period: "2024.8"
-    title: "産業実習 農業用機械の自動化に関する研究開発インターンシップ"
-    organization: "株式会社クボタ / 東京大学工学部機械系"
-    url: 
+  - period: "2024.08"
+    title:
+      ja: "産業実習 農業用機械の自動化に関する研究開発インターンシップ"
+      en: "Industrial Internship: R&D on Automation of Agricultural Machinery"
+    organization:
+      ja: "株式会社クボタ / 東京大学工学部機械系"
+      en: "Kubota Corporation / Mechanical Engineering Departments, The University of Tokyo"
+    url:
 
 awards:
   - date: "2025.01"
-    title: "(学科) 自主プロジェクト プレゼンテーション賞 受賞"
-    description: "Real Turtle Talk の実装と発表"
-    organization: "東京大学 工学部 機械情報工学科"
+    title:
+      ja: "(学科) 自主プロジェクト プレゼンテーション賞 受賞"
+      en: "Presentation Award, Independent Project (Department)"
+    description:
+      ja: "Real Turtle Talk の実装と発表"
+      en: "Implementation and presentation of \"Real Turtle Talk\""
+    organization:
+      ja: "東京大学 工学部 機械情報工学科"
+      en: "Department of Mechano-Informatics, The University of Tokyo"
 
   - date: "2024.12"
-    title: "Sensing Solution ハッカソン2024 ベスト・フィールドセンシング賞"
-    organization: "ソニーグループ株式会社"
+    title:
+      ja: "Sensing Solution ハッカソン2024 ベスト・フィールドセンシング賞"
+      en: "Best Field Sensing Award, Sensing Solution Hackathon 2024"
+    organization:
+      ja: "ソニーグループ株式会社"
+      en: "Sony Group Corporation"
     url: "https://sensing-solution-hackathon.sonyged.com/2024_report"
 
 papers:
   - date: "2026.04.22"
-    authors: "牛田恭太郎, 小松高歩, 大村吉幸, 國吉康夫"
+    authors:
+      ja: "牛田恭太郎, 小松高歩, 大村吉幸, 國吉康夫"
+      en: "Kyotaro Ushida, Takayuki Komatsu, Yoshiyuki Ohmura, Yasuo Kuniyoshi"
     title: "Unsupervised Learning of Inter-Object Relationships via Group Homomorphism"
     institution: "arXiv preprint arXiv:2604.20925"
     url: "https://arxiv.org/abs/2604.20925"
@@ -50,34 +97,50 @@ papers:
 presentations:
 
   - date: "2026.06.07"
-    type: "学会/ポスター発表"
-    title: "P-31 群準同型を用いた物体間の関係の教師なし表現学習"
-    event: "日本赤ちゃん学会 第26回学術集会"
+    type:
+      ja: "学会/ポスター発表"
+      en: "Poster"
+    title:
+      ja: "P-31 群準同型を用いた物体間の関係の教師なし表現学習"
+      en: "P-31 Unsupervised Representation Learning of Inter-Object Relationships Using Group Homomorphism"
+    event:
+      ja: "日本赤ちゃん学会 第26回学術集会"
+      en: "The 26th Annual Meeting of the Japan Society of Baby Science"
     event_url: "https://jsbs.gr.jp/jsbs2026/"
     news_url: ""
 
   - date: "2026.06.06"
-    type: "講演"
-    title: "人工知能とAgent認識研究から読み解くアニミズム"
-    event: "第2回 高志連 もんぶらん合宿"
+    type:
+      ja: "講演"
+      en: "Talk"
+    title:
+      ja: "人工知能とAgent認識研究から読み解くアニミズム"
+      en: "Animism through the Lens of AI and Agency Recognition Research"
+    event:
+      ja: "第2回 高志連 もんぶらん合宿"
+      en: "The 2nd Koshiren Montblanc Camp"
     event_url: ""
     news_url: ""
 
   - date: "2026.03.20"
-    type: "スピーチ"
-    title: "僕が未来へ繋ぐAIロボット"
-    event: "第12回 LEX Multilingual Presentation for Youth TOKYO (LMP)"
+    type:
+      ja: "スピーチ"
+      en: "Speech"
+    title:
+      ja: "僕が未来へ繋ぐAIロボット"
+      en: "The AI Robots I Will Connect to the Future"
+    event:
+      ja: "第12回 LEX Multilingual Presentation for Youth TOKYO (LMP)"
+      en: "The 12th LEX Multilingual Presentation for Youth TOKYO (LMP)"
     event_url: "https://sites.google.com/lexhippo.gr.jp/lmp/home"
     news_url: "/news/lmp-final/"
 
 keywords:
-  - "人工知能"
-  - "機械学習"
-  - "認知科学"
-  - "ロボティクス"
+  - {ja: "人工知能", en: "Artificial Intelligence"}
+  - {ja: "機械学習", en: "Machine Learning"}
+  - {ja: "認知科学", en: "Cognitive Science"}
+  - {ja: "ロボティクス", en: "Robotics"}
 
 media:
 
 publications:
-
-

@@ -1,0 +1,8 @@
+{%- comment -%}
+  多言語ヘルパー: {% include t.html v=item.title %}
+  v が {ja: ..., en: ...} ならページの言語(page.lang)の値を、無ければ ja を出す。
+  v がただの文字列ならそのまま出す。
+{%- endcomment -%}
+{%- assign _v = include.v -%}
+{%- assign _l = include.lang | default: page.lang | default: site.lang -%}
+{%- if _v[_l] -%}{{ _v[_l] }}{%- elsif _v.ja -%}{{ _v.ja }}{%- else -%}{{ _v }}{%- endif -%}

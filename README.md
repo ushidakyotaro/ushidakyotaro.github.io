@@ -75,6 +75,13 @@ git push origin main
 
 プッシュする: GitHub にプッシュすると、正式な記事として公開されます。
 
+# 英語版ページ（多言語）
+- 英語ページは `en/` 以下（`en/index.html`, `en/cv.md`, `en/contact.md`）。`_config.yml` の defaults で `lang: en` が自動で付く。
+- 日本語版と英語版は front matter の `ref:` を同じ値にすると対応づけられ、ヘッダーの言語切替リンクと hreflang が自動で出る。
+- CV のデータは `_data/cv.yml` に `{ja: ..., en: ...}` の形で日英を併記する（`_includes/t.html` が言語に応じて選ぶ）。
+- 英語メニューは `_data/navigation.yml` の `en:`。
+- メールアドレスは `_config.yml` の `email_user` / `email_domain` を変更する。
+
 # 記事を書く時の注意
 カテゴリー：
         順番を守る: 必ず [親, 子, 孫] の順で書く（パンくずリストは書かれた順にループするため）。

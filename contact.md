@@ -2,6 +2,7 @@
 layout: default
 title: "Contact"
 permalink: /contact/
+ref: contact
 ---
 
 <div class="contact-container">
@@ -16,7 +17,7 @@ permalink: /contact/
     <div class="contact-email-box">
       <i class="far fa-envelope"></i>
       <span class="label">Email:</span>
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      {% include email.html %}
     </div>
 
     {% if site.data.social %}

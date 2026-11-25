@@ -1,42 +1,48 @@
 <!doctype html>
-<html lang="ja">
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
 <head>
     <meta charset="utf-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% comment %} <title> と OGP/Twitter Card は jekyll-seo-tag が出力する {% endcomment %}
+    {% seo %}
+    {% include lang-alternates.html mode="head" %}
+
     {% include google-analytics.html %}
     {% include google-adsense.html %}
 
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    {% seo %}
 
     {% if page.math %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.body);"></script>
+            onload="renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '$', right: '$', display: false}
+                ],
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                throwOnError: false
+            });"></script>
     {% endif %}
 </head>
 <body>
     <div id="wrap">
-        <header>
-            {% include header.html %}
-        </header>
+        {% include header.html %}
 
         <div id="main-content">
-
-            
             <main id="content">
                 {% if page.layout == 'post' %}
                     {% include breadcrumbs.html %}
                 {% endif %}
                 {{ content }}
             </main>
-            
+
             <aside id="sidebar">
                 {% include sidebar.html %}
             </aside>

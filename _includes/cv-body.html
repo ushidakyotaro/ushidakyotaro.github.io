@@ -1,0 +1,122 @@
+{%- comment -%}
+  CV 本体。cv.md（日本語）と en/cv.md（英語）の両方から読み込む。
+  表示言語は page.lang で切り替わる（データは _data/cv.yml）。
+{%- endcomment -%}
+{%- assign en = false -%}
+{%- if page.lang == 'en' -%}{%- assign en = true -%}{%- endif -%}
+
+<h1>CV</h1>
+
+<h2>Keywords</h2>
+<div style="margin-bottom: 20px;">
+  {% for keyword in site.data.cv.keywords %}
+    <span style="display: inline-block; background-color: #f0f0f0; color: #333; padding: 4px 10px; border-radius: 16px; margin: 0 5px 5px 0; font-size: 0.9em;">
+      {% include t.html v=keyword %}
+    </span>
+  {% endfor %}
+</div>
+
+<h2>Education</h2>
+<table class="account-table">
+  <tbody>
+    {% for item in site.data.cv.education %}
+      <tr>
+        <th>{% if en %}{{ item.period | replace: '(予定)', ' (expected)' | replace: '現在', 'Present' }}{% else %}{{ item.period }}{% endif %}</th>
+        <td>
+            <strong>
+              {% if item.url %}<a href="{{ item.url }}" target="_blank">{% endif %}
+              {% include t.html v=item.institution %}
+              {% if item.url %}</a>{% endif %}
+            </strong><br>
+            {% if item.degree %}{% include t.html v=item.degree %}{% endif %}
+            {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">{% include t.html v=item.description %}</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Experience</h2>
+<table class="account-table">
+  <tbody>
+    {% for item in site.data.cv.experience %}
+      <tr>
+        <th>{% if en %}{{ item.period | replace: '(予定)', ' (expected)' | replace: '現在', 'Present' }}{% else %}{{ item.period }}{% endif %}</th>
+        <td>
+            <strong>
+              {% if item.url %}<a href="{{ item.url }}" target="_blank">{% endif %}
+              {% include t.html v=item.title %}
+              {% if item.url %}</a>{% endif %}
+            </strong><br>
+            {% include t.html v=item.organization %}
+            {% if item.description %}<br><span style="font-size: 0.9em; color: #666;">- {% include t.html v=item.description %}</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Publications</h2>
+<ul class="post-list-detailed">
+  {% for paper in site.data.cv.papers %}
+    <li class="post-item" style="display: block; padding: 10px 0;">
+        <div style="font-weight: bold;">
+          {% if paper.url %}<a href="{{ paper.url }}" target="_blank">{% endif %}
+          {% include t.html v=paper.title %}
+          {% if paper.url %}</a>{% endif %}
+        </div>
+        <div style="font-size: 0.95rem;">
+            {% if paper.authors %}{% include t.html v=paper.authors %}. {% endif %}
+            {% if paper.institution %}<i>{% include t.html v=paper.institution %}</i>{% endif %}
+            {% if paper.location %}, {{ paper.location }}.{% endif %}
+            <span style="color: #666;">{{ paper.date }}</span>
+        </div>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>Presentations</h2>
+<table class="account-table">
+  <tbody>
+    {% for pres in site.data.cv.presentations %}
+      <tr>
+        <th style="min-width: 100px;">{{ pres.date }}</th>
+        <td>
+            <span style="font-size: 0.85em; color: #666; background: #eee; padding: 2px 6px; border-radius: 4px;">{% include t.html v=pres.type %}</span><br>
+            <strong style="display: inline-block; margin-top: 4px;">
+              {% include t.html v=pres.title %}
+            </strong><br>
+
+            {% if pres.event_url and pres.event_url != "" %}
+              <a href="{{ pres.event_url }}" target="_blank">{% include t.html v=pres.event %}</a>
+            {% else %}
+              {% include t.html v=pres.event %}
+            {% endif %}
+
+            {% if pres.news_url and pres.news_url != "" %}
+              <span style="margin-left: 10px; font-size: 0.9em;">[<a href="{{ pres.news_url | relative_url }}" target="_blank">News{% if en %} (Japanese){% endif %}</a>]</span>
+            {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Awards</h2>
+<table class="account-table">
+  <tbody>
+    {% for award in site.data.cv.awards %}
+      <tr>
+        <th>{{ award.date }}</th>
+        <td>
+            <strong>
+              {% if award.url %}<a href="{{ award.url }}" target="_blank">{% endif %}
+              {% include t.html v=award.title %}
+              {% if award.url %}</a>{% endif %}
+            </strong><br>
+            {% include t.html v=award.organization %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

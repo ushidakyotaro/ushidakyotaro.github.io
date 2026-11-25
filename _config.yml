@@ -5,10 +5,47 @@ permalink: /posts/:title/
 
 # 基本情報の共通設定
 title: "Ushi Log"
-description: "サイト作成中です！"
+description: "牛田恭太郎（東京大学大学院）の研究ポートフォリオ。認知発達ロボティクスを通じて「世界を理解するAIロボット」をつくり、人と知能ロボットと自然が共生する社会を考えています。"
+url: "https://ushidakyotaro.github.io"
 
 owner_name: "ushidakyotaro"
-email: k-ushida@isi.imi.i.u-tokyo.ac.jp
+# メールアドレス（スパム対策のため @ の前後に分けて保存。ページ上では "user [at] domain" と表示される）
+# 大学などが変わったらここの2行だけ書き換えればよい
+email_user: "k-ushida"
+email_domain: "isi.imi.i.u-tokyo.ac.jp"
+
+# 言語（<html lang> と og:locale に使われる）
+lang: ja
+locale: ja_JP
+
+# jekyll-seo-tag 用：著者・SNS・OGP画像
+author:
+  name: "Kyotaro Ushida"
+  twitter: ushidakyotaro
+twitter:
+  username: ushidakyotaro
+  card: summary
+logo: /assets/images/profile.png
+social:
+  name: "Kyotaro Ushida"
+  links:
+    - https://x.com/ushidakyotaro
+    - https://github.com/ushidakyotaro
+    - https://www.youtube.com/@k-ushida
+    - https://scholar.google.co.jp/citations?user=mE6t0nUAAAAJ
+
+# 全ページ共通の OGP 画像（記事側で image: を書けば上書きされる）
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/profile.png
+  # en/ フォルダ以下は英語ページ（<html lang="en">、og:locale=en_US、英語メニュー）
+  - scope:
+      path: "en"
+    values:
+      lang: en
+      locale: en_US
 
 # lang: [ja, en, fr]
 
@@ -18,8 +55,10 @@ collections:
     permalink: /news/:title/
   
 # 数式 (KaTeX) を使う場合、kramdownの設定が必要なことがあります
+# mathjax エンジンは $$...$$ を \(...\) / \[...\] に変換するだけで、描画はブラウザ側の KaTeX auto-render が行う
+# （katex エンジンは GitHub Pages 非対応の gem が必要なので使わない）
 kramdown:
-  math_engine: katex
+  math_engine: mathjax
 
 comments:
   provider: "utterances"

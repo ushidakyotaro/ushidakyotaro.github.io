@@ -1,11 +1,16 @@
 ---
-layout: default # ステップ1で作成したレイアウトを指定
-title: "home"    # ページのタイトルを指定
+layout: default
+title: "牛田恭太郎 (Kyotaro Ushida)"  # トップページの <title> / og:title になる
+ref: home  # 英語版 en/index.html と対応づけるためのキー
 ---
 <section class="hero" style="padding: 40px 0; border-bottom: 1px solid #eee; margin-bottom: 30px;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 10px;">{{ site.data.cv.name | default: "Kyotaro Ushida" }}</h1>
+  <h1 style="font-size: 2.5rem; margin-bottom: 10px;">
+    {{ site.data.cv.name }}
+    <span style="display: block; font-size: 1.2rem; color: #666; font-weight: normal;">{{ site.data.cv.name_en }}</span>
+  </h1>
   <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
-    <strong>{{ site.data.cv.education[0].institution }}</strong> {{ site.data.cv.education[0].degree }}<br>
+    {% assign current_edu = site.data.cv.education | first %}
+    <strong>{% include t.html v=current_edu.institution %}</strong> {% include t.html v=current_edu.degree %}<br>
     専門：発達ロボティクス、記号創発、教師なし表現学習
   </p>
   <p style="font-size: 0.95rem; color: #666;">
@@ -41,7 +46,7 @@ title: "home"    # ページのタイトルを指定
       <span class="post-date">{{ paper.date }}</span>
       <div style="display: inline-block; margin-left: 10px;">
         <strong>{{ paper.title }}</strong><br>
-        <small>{{ paper.conference }}</small>
+        <small>{{ paper.institution }}</small>
       </div>
     </li>
     {% endfor %}

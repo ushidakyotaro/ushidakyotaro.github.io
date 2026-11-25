@@ -23,9 +23,15 @@ layout: default
   </div>
 
   <footer class="post-footer">
-    <a href="/news/" class="btn-back">
-      <i class="fas fa-arrow-left"></i> お知らせ一覧に戻る
-    </a>
+    {% if page.collection == 'news' %}
+      <a href="{{ '/news/' | relative_url }}" class="btn-back">
+        <i class="fas fa-arrow-left"></i> お知らせ一覧に戻る
+      </a>
+    {% else %}
+      <a href="{{ '/article/' | relative_url }}" class="btn-back">
+        <i class="fas fa-arrow-left"></i> 記事一覧に戻る
+      </a>
+    {% endif %}
   </footer>
 
 </article>

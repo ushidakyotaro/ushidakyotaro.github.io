@@ -1,0 +1,32 @@
+{%- comment -%}
+  page.ref が同じページ同士を「同じページの別言語版」とみなす。
+  mode=head  : <head> 用の hreflang リンクを出力
+  mode=switch: ヘッダー用の言語切り替えリンクを出力（対応ページが無ければ相手言語のトップへ）
+{%- endcomment -%}
+{%- assign cur_lang = page.lang | default: site.lang -%}
+{%- if page.ref -%}
+  {%- assign alts = site.pages | where: "ref", page.ref -%}
+{%- else -%}
+  {%- assign alts = "" | split: "" -%}
+{%- endif -%}
+
+{%- if include.mode == 'head' -%}
+  {%- for p in alts -%}
+    {%- assign p_lang = p.lang | default: site.lang %}
+    <link rel="alternate" hreflang="{{ p_lang }}" href="{{ p.url | absolute_url }}">
+    {%- if p_lang == site.lang %}
+    <link rel="alternate" hreflang="x-default" href="{{ p.url | absolute_url }}">
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- if cur_lang == 'en' -%}
+    {%- assign target_lang = 'ja' -%}{%- assign target_label = '日本語' -%}{%- assign target_url = '/' -%}
+  {%- else -%}
+    {%- assign target_lang = 'en' -%}{%- assign target_label = 'English' -%}{%- assign target_url = '/en/' -%}
+  {%- endif -%}
+  {%- for p in alts -%}
+    {%- assign p_lang = p.lang | default: site.lang -%}
+    {%- if p_lang == target_lang -%}{%- assign target_url = p.url -%}{%- endif -%}
+  {%- endfor -%}
+  <a href="{{ target_url | relative_url }}" hreflang="{{ target_lang }}" lang="{{ target_lang }}" class="lang-switch"><i class="fa-solid fa-globe"></i> {{ target_label }}</a>
+{%- endif -%}

@@ -1,0 +1,10 @@
+{%- comment -%}
+  スパム対策つきのメールアドレス表示。
+  HTML には "user [at] domain" の形でしか書かれず、mailto リンクはクリックされたときに JavaScript で組み立てる。
+  （HTML を読むだけの収集ボットにはアドレスとして拾われにくい）
+{%- endcomment -%}
+<span class="email-obfuscated" data-u="{{ site.email_user }}" data-d="{{ site.email_domain }}">{{ site.email_user }} [at] {{ site.email_domain }}</span>
+<a href="#" class="email-compose" style="margin-left: 8px; font-size: 0.9em;"
+   onclick="var s=this.previousElementSibling; this.href='mai'+'lto:'+s.dataset.u+'@'+s.dataset.d; return true;">
+  <i class="fas fa-paper-plane"></i> {% if page.lang == 'en' %}Compose{% else %}メールを作成{% endif %}
+</a>

@@ -1,20 +1,14 @@
-<header>
-    <head>
-        <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-    </head>
-    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+{%- assign is_en = false -%}
+{%- if page.lang == 'en' -%}{%- assign is_en = true -%}{%- endif -%}
+<header id="site-header">
+    <h1><a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{{ site.title }}</a></h1>
     <nav>
         <ul>
-        {% for link in site.data.navigation.main %}
+        {% if is_en %}{% assign nav = site.data.navigation.en %}{% else %}{% assign nav = site.data.navigation.main %}{% endif %}
+        {% for link in nav %}
         <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
         {% endfor %}
+        <li>{% include lang-alternates.html mode="switch" %}</li>
         </ul>
     </nav>
-    <!-- <nav>
-        {% if page.url contains '/en/' %}
-            <a href="{{ page.url | replace: '/en/', '/jp/' }}">日本語</a>
-        {% else %}
-            <a href="{{ page.url | prepend: '/en' }}">English</a>
-        {% endif %}
-    </nav> -->
 </header>
