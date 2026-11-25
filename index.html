@@ -59,13 +59,37 @@ ref: home  # 英語版 en/index.html と対応づけるためのキー
 <section id="recent-posts" style="margin-top: 40px;">
   <h2><i class="fa-solid fa-pen-nib"></i> Recent Blog Posts</h2>
   <ul class="post-list">
-    {% for post in site.posts limit:3 %}
+    {% comment %} Life（趣味）カテゴリの記事は Home には出さない {% endcomment %}
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+      {% if shown >= 3 %}{% break %}{% endif %}
+      {% unless post.categories contains 'Life' %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+      {% assign shown = shown | plus: 1 %}
+      {% endunless %}
+    {% endfor %}
+    {% if shown == 0 %}<li>まだ記事はありません。</li>{% endif %}
+  </ul>
+</section>
+
+<section id="recent-notes" style="margin-top: 40px;">
+  <h2><i class="fa-solid fa-book-open"></i> Notes</h2>
+  <ul class="post-list">
+    {% assign recent_notes = site.notes | sort: "updated" | reverse %}
+    {% for note in recent_notes limit:3 %}
     <li>
-      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="post-date">{{ note.updated | date: "%Y.%m.%d" }}</span>
+      <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+      {% if note.topic %}<small style="color: #888;">（{{ note.topic }}）</small>{% endif %}
     </li>
     {% endfor %}
   </ul>
+  <div style="text-align: right; margin-top: 10px;">
+    <a href="{{ '/notes/' | relative_url }}">研究の基礎知識ノート一覧 →</a>
+  </div>
 </section>
 
 <section id="accounts" style="margin-top: 40px;">

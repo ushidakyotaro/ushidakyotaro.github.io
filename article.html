@@ -1,0 +1,29 @@
+---
+layout: default
+title: "Blog Articles"
+permalink: /article/
+---
+
+{% comment %}
+  categories に "Life" を含む記事は趣味の記事として下の「Life」セクションに分ける。
+{% endcomment %}
+{% assign research_posts = "" | split: "" %}
+{% assign life_posts = "" | split: "" %}
+{% for post in site.posts %}
+  {% if post.categories contains 'Life' %}
+    {% assign life_posts = life_posts | push: post %}
+  {% else %}
+    {% assign research_posts = research_posts | push: post %}
+  {% endif %}
+{% endfor %}
+
+<h1>Blog Articles</h1>
+
+<p style="font-size: 0.9em; color: #666;">研究の基礎知識をテーマ別にまとめたものは <a href="{{ '/notes/' | relative_url }}">Notes</a> にあります。</p>
+
+<h2 id="research"><i class="fa-solid fa-flask"></i> Research &amp; Tech</h2>
+{% include post-list-by-year.html posts=research_posts %}
+
+<h2 id="life"><i class="fa-solid fa-mug-hot"></i> Life</h2>
+<p style="font-size: 0.9em; color: #666;">旅行・音楽・言語など、研究以外の話。</p>
+{% include post-list-by-year.html posts=life_posts %}

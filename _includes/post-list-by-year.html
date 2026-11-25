@@ -1,15 +1,10 @@
----
-layout: default
-title: "Blog Articles"
-permalink: /article/
----
-
-# Blog Articles
-
-{% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-
+{%- comment -%}
+  記事リストを年ごとにまとめて表示する。
+  使い方: include タグで post-list-by-year.html を呼び、posts パラメータに記事の配列を渡す。
+{%- endcomment -%}
+{% assign postsByYear = include.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in postsByYear %}
-  <h2 class="year-heading">{{ year.name }}</h2>
+  <h3 class="year-heading">{{ year.name }}</h3>
   <ul class="post-list-detailed">
     {% for post in year.items %}
       <li class="post-item">
@@ -27,4 +22,6 @@ permalink: /article/
       </li>
     {% endfor %}
   </ul>
+{% else %}
+  <p style="color: #888;">まだ記事はありません。</p>
 {% endfor %}

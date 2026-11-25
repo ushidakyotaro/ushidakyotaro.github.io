@@ -1,11 +1,13 @@
 ---
-
-layout: post
 title: "知の創成 1"
-date: 2024-05-20 
-categories: [AI, 身体性認知科学,知の創成] 
-published: true 
-math: true
+topic: "身体性認知科学"   # Notes 一覧でのテーマ（同じ値のノートがまとまる）
+order: 1                  # テーマ内での並び順
+updated: 2026-02-06       # 最終更新日（内容を直したら更新する）
+references:
+  - title: "R. Pfeifer, C. Scheier『知の創成 ― 身体性認知科学への招待』共立出版"
+    url: "https://www.amazon.co.jp/dp/4320120329"
+redirect_from:
+  - /posts/understanding-intelligence-1/
 ---
 今回は、ロルフ・ファイファーらによる名著『知能の創成 ― 身体性認知科学への招待』をベースに、「知能とは何か」という根源的な問いについて、身体性認知科学の視点から紐解いていきます。
 

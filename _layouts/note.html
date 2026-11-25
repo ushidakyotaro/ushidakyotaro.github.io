@@ -1,0 +1,78 @@
+---
+layout: default
+---
+{%- comment -%}
+  研究の基礎知識ノート用レイアウト（_notes/ 以下に自動で適用）。
+  front matter: title, topic, order, updated, references(任意)
+{%- endcomment -%}
+
+{%- comment -%} 同じテーマのノートを order 順に並べ、前後のノートを探す {%- endcomment -%}
+{%- assign siblings = site.notes | where: "topic", page.topic | sort: "order" -%}
+{%- assign prev_note = nil -%}
+{%- assign next_note = nil -%}
+{%- for n in siblings -%}
+  {%- if n.url == page.url -%}
+    {%- assign i_prev = forloop.index0 | minus: 1 -%}
+    {%- assign i_next = forloop.index0 | plus: 1 -%}
+    {%- if i_prev >= 0 -%}{%- assign prev_note = siblings[i_prev] -%}{%- endif -%}
+    {%- assign next_note = siblings[i_next] -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<nav class="breadcrumbs">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  &nbsp;>&nbsp;
+  <a href="{{ '/notes/' | relative_url }}">Notes</a>
+  {% if page.topic %}
+    &nbsp;>&nbsp;
+    <a href="{{ '/notes/' | relative_url }}#{{ page.topic | slugify }}">{{ page.topic }}</a>
+  {% endif %}
+  &nbsp;>&nbsp;
+  <span class="current-page">{{ page.title }}</span>
+</nav>
+
+<article class="post-container">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      {% if page.updated %}
+        <i class="fas fa-rotate"></i> 最終更新
+        <time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date: "%Y.%m.%d" }}</time>
+      {% endif %}
+      {% if page.topic %}
+        <span class="post-category-tag">
+          <i class="far fa-folder"></i> {{ page.topic }}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.references %}
+  <section class="note-references">
+    <h2>参考文献</h2>
+    <ul>
+      {% for ref in page.references %}
+        <li>{% if ref.url %}<a href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.title }}</a>{% else %}{{ ref.title }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <footer class="post-footer">
+    {% if prev_note or next_note %}
+    <div class="note-pager" style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 15px;">
+      <span>{% if prev_note %}<a href="{{ prev_note.url | relative_url }}">← {{ prev_note.title }}</a>{% endif %}</span>
+      <span>{% if next_note %}<a href="{{ next_note.url | relative_url }}">{{ next_note.title }} →</a>{% endif %}</span>
+    </div>
+    {% endif %}
+    <a href="{{ '/notes/' | relative_url }}" class="btn-back">
+      <i class="fas fa-arrow-left"></i> Notes 一覧に戻る
+    </a>
+  </footer>
+
+</article>

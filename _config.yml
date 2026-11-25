@@ -40,6 +40,13 @@ defaults:
       path: ""
     values:
       image: /assets/images/profile.png
+  # Notes は専用レイアウト＋数式あり
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+      math: true
   # en/ フォルダ以下は英語ページ（<html lang="en">、og:locale=en_US、英語メニュー）
   - scope:
       path: "en"
@@ -53,7 +60,11 @@ collections:
   news:
     output: true
     permalink: /news/:title/
-  
+  # 研究の基礎知識ノート（テーマ別・随時更新）。_notes/<テーマ>/<スラッグ>.md に置く
+  notes:
+    output: true
+    permalink: /notes/:path/
+
 # 数式 (KaTeX) を使う場合、kramdownの設定が必要なことがあります
 # mathjax エンジンは $$...$$ を \(...\) / \[...\] に変換するだけで、描画はブラウザ側の KaTeX auto-render が行う
 # （katex エンジンは GitHub Pages 非対応の gem が必要なので使わない）
@@ -68,5 +79,6 @@ comments:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-redirect-from  # 記事を移動したときに旧URLから転送する（redirect_from:）
 
 show_drafts: false # trueだと_drafts/がすべての人に見えるようになる
